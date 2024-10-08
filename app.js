@@ -1,5 +1,3 @@
-// const $ = (el) => document.querySelector(el);
-
 const $name = document.getElementById('name');
 
 const $data1 = document.getElementById('note1');
@@ -11,16 +9,18 @@ const $btnPredict = document.getElementById('btn-predict');
 
 const $calification = document.getElementById('result');
 
-function printMessage(text, HTMLClass = '') {
-    $calification.textContent = text;
-    $calification.classList.add(HTMLClass);
-};
+function calculateFinalNote(event) {
+    event.preventDefault()
 
-function calculateFinalNote(e) {
-    let notes = [$note1.value, $note2.value, $note3.value];
-    notes.map((i) => Number(i))
-    let finalNote = notes.reduce((i, count) => count + i);
-    printMessage(finalNote);
+    let name = $name.value;
+
+    let note1 = Number($data1.value);
+    let note2 = Number($data2.value);
+    let note3 = Number($data3.value);
+    let result = (note1 * 0.3) + (note2 * 0.3) + (note3 * 0.4);
+
+    let message = `Señor/a ${name}, su nota definitiva es: ${result}`;
+    $calification.textContent = message;
 };
 
 $btnCalc.addEventListener('click', calculateFinalNote);
