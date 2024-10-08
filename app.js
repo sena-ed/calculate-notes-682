@@ -30,7 +30,7 @@ function calculateNote(event){
     let mensaje = `Señor ${name}, su nota definitva es: ${result}`
     
     // Para mostrar un mensaje que no sea input o textarea
-    response.textContent = mensaje  
+    answer.textContent = mensaje  
 
 
 }
