@@ -1,3 +1,4 @@
+import { verifyNumber } from "./services/verificadores.js";
 
 function main(){
     // trayendo los input
@@ -23,6 +24,12 @@ function main(){
         let note1 = Number(data1.value);
         let note2 = Number(data2.value);
         let note3 = Number(data3.value);
+
+        //validar
+        let numbers =[];
+        numbers.push(note1,note2,note3);
+
+        verifyNumber(numbers);
 
         // calcular
         let result = (note1 * 0.3) + (note2 * 0.3) + (note3 * 0.4);
