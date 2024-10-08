@@ -1,12 +1,26 @@
 // const $ = (el) => document.querySelector(el);
 
-const $name = document.getElementById('nombre')
+const $name = document.getElementById('name');
 
-const $note1 = document.getElementById('note1')
-const $note2 = document.getElementById('note2')
-const $note3 = document.getElementById('note3')
+const $data1 = document.getElementById('note1');
+const $data2 = document.getElementById('note2');
+const $data3 = document.getElementById('note3');
 
-const $btnCalc = document.getElementById('btn-calculate')
-const $btnPredict = document.getElementById('btn-predict')
+const $btnCalc = document.getElementById('btn-calculate');
+const $btnPredict = document.getElementById('btn-predict');
 
-const $calification = document.getElementById('resultado')
+const $calification = document.getElementById('result');
+
+function printMessage(text, HTMLClass = '') {
+    $calification.textContent = text;
+    $calification.classList.add(HTMLClass);
+};
+
+function calculateFinalNote(e) {
+    let notes = [$note1.value, $note2.value, $note3.value];
+    notes.map((i) => Number(i))
+    let finalNote = notes.reduce((i, count) => count + i);
+    printMessage(finalNote);
+};
+
+$btnCalc.addEventListener('click', calculateFinalNote);
