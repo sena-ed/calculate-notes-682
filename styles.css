@@ -74,6 +74,12 @@ button:hover {
   color: #343a40;
 }
 
+
+#note3 {
+  transition: background-color 0.5s ease-in-out;
+}
+
+
 @media (max-width: 600px) {
   .container {
     width: 90%;
